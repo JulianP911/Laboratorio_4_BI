@@ -8,7 +8,7 @@ from typing import FrozenSet
 import pandas as pd
 import numpy as np
 from pandas import json_normalize
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
 from joblib import load
 from fastapi.encoders import jsonable_encoder
 from fastapi import FastAPI
@@ -41,9 +41,8 @@ def mse(data: DataModelList, dataModePredictVariable: DataModelPredictVariable):
     result = model.predict(df)
     dict = jsonable_encoder(dataModePredictVariable)
     y_true = dict["life_expectancy"]
-    mse = mean_squared_error([y_true], result)
-    result = np.sqrt(mse)
-    return {"mse": mse}
+    r2 = r2_score([y_true], result)
+    return {"r^2": r2}
 
 # Función: Está se encarga de convertir los datos recibidos a través del JSON en un dataframe para que puedan ser usados en el modelo ML
 def convert_json_to_dataframe(data):
