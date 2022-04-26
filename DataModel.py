@@ -38,7 +38,7 @@ class DataModelList(BaseModel):
     data: List[DataModel]
 
 # Clase DataModelPredictVariable
-class DataModelPredictVariable(BaseModel):
+class DataModelTrue(BaseModel):
 
     # Estas varibles permiten que la librería pydantic haga el parseo entre el Json recibido y el modelo declarado
     life_expectancy: float
@@ -46,3 +46,9 @@ class DataModelPredictVariable(BaseModel):
     # Esta función retorna el nombre de las columna correspondiente con el modelo exportado en joblib
     def column():
         return "Life expectancy"
+
+# Clase DataModelPredictVar
+class DataModelPredictVariableList(BaseModel):
+
+    # Está varible permiten que la librería pydantic haga el parseo entre el Json recibido y el modelo declarado
+    dataTrue: List[DataModelTrue]

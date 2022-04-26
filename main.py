@@ -3,12 +3,12 @@ import json
 from plistlib import load
 from typing import Optional
 from typing_extensions import Self
-from DataModel import DataModel, DataModelList, DataModelPredictVariable
+from DataModel import DataModel, DataModelList, DataModelPredictVariableList
 from typing import FrozenSet
 import pandas as pd
 import numpy as np
 from pandas import json_normalize
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error
 from joblib import load
 from fastapi.encoders import jsonable_encoder
 from fastapi import FastAPI
@@ -32,16 +32,18 @@ def make_predictions(data: DataModelList):
     json_predict = json.dumps(lists)
     return json_predict
 
-# Endpoint 2: Determinar la métrica de mse del modelo ML de regresión lineal
-@app.post("/mse")
-def mse(data: DataModelList, dataModePredictVariable: DataModelPredictVariable):
+# Endpoint 2: Determinar la métrica de r^2 del modelo ML de regresión lineal
+@app.post("/r2")
+def r2(data: DataModelList, dataTrue: DataModelPredictVariableList):
     df = convert_json_to_dataframe(data)
     df.columns = DataModel.columns()
     model = load("assets/modelo.joblib")
     result = model.predict(df)
-    dict = jsonable_encoder(dataModePredictVariable)
-    y_true = dict["life_expectancy"]
-    r2 = r2_score([y_true], result)
+    dict = jsonable_encoder(dataTrue)
+    y_true = []
+    for i in dict["dataTrue"]:
+        y_true.append(float(i["life_expectancy"]))
+    r2 = r2_score(y_true, result.tolist())
     return {"r^2": r2}
 
 # Función: Está se encarga de convertir los datos recibidos a través del JSON en un dataframe para que puedan ser usados en el modelo ML
