@@ -42,3 +42,20 @@
   </ul>
  
  <strong>Funcionamiento del API:</strong>
+ 
+ El diseño de la API consta principalmente de dos endpoints:
+ 
+ <ol>
+  <li>
+    Endpoint: <code>http://127.0.0.1:8000/predict</code> o <code>https://lab4-bi-uniandes.herokuapp.com/predict</code>
+    <br>
+    <strong>Funcionalidad:</strong> Calcular la predicción del modelo machine learning de regresión lineal.
+    <strong>Operabilidad:</strong> Se envia un JSON con los predictores X de un registro de la base de datos para obtener la predicción realizada por el model de regresión lineal. El API retorna la predicción del modelo de regresión lineal
+  </li>
+  <li>Endpoint: <code>http://127.0.0.1:8000/r^2</code> o <code>https://lab4-bi-uniandes.herokuapp.com/r^2</code>
+    <br>
+    <strong>Funcionalidad:</strong> Calcular la metrica R^2 del modelo de regresión lineal.
+    <strong>Operabilidad:</strong> Se envia un JSON con un conjunto de registros incluyendo predictores X y valores esperados Y. El API retorna la metrica R^2 del modelo de regresión lineal.
+  </li>
+ </ol>
+ 
