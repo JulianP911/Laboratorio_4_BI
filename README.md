@@ -22,7 +22,7 @@
   <li>Clonar el proyecto en un carpeta de preferencia.</li>
   <li>Abrir Visual Studio Code en la carpeta donde quede almacenado el proyecto.</li>
   <li>Abrir la terminal en la dirección de proyecto e ingresar el comando <code>$ pip install -r requirements.txt
-</code> para instalar las dependencias necesarias para la ejecución respectiva del proyecto.<li>
+</code> para instalar las dependencias necesarias para la ejecución respectiva del proyecto.</li>
   </ol>
   
 <strong>Despliegue del proyecto:</strong>
@@ -36,12 +36,9 @@
     <li>
       Despliegue remoto:
       <ol>
-        <li>Abrir el navegador de preferencia y ingresar la url <a href="https://lab4-bi-uniandes.herokuapp.com/">Servidor Laboratorio 4 - Heroku</a> donde se encuentra el proyecto en el servidor remoto.</li>
+        <li>Abrir el navegador de preferencia y ingresar a la url <code>"https://lab4-bi-uniandes.herokuapp.com/"</code> donde se encuentra el proyecto en el servidor remoto.</li>
       </ol>
     </li>
   </ul>
  
  <strong>Funcionamiento del API:</strong>
-
-
-Archivo README con las instrucciones de instalación, despliegue y funcionamiento del API.
