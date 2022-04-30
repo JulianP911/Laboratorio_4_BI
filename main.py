@@ -30,7 +30,7 @@ def make_predictions(data: DataModelList):
     result = model.predict(df)
     lists = result.tolist()
     json_predict = json.dumps(lists)
-    return json_predict
+    return {"predict": json_predict}
 
 # Endpoint 2: Determinar la métrica de r^2 del modelo ML de regresión lineal
 @app.post("/r2")
