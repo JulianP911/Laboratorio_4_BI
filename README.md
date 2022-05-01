@@ -56,7 +56,7 @@
   </li>
 </ul>
 <ul>
-  <li>Endpoint: <code>http://127.0.0.1:8000/r^2</code> o <code>https://lab4-bi-uniandes.herokuapp.com/r^2</code>
+  <li>Endpoint: <code>http://127.0.0.1:8000/r2</code> o <code>https://lab4-bi-uniandes.herokuapp.com/r2</code>
     <br>
     <strong>Funcionalidad:</strong> Calcular la metrica R^2 del modelo de regresión lineal.
     <br>
